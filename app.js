@@ -14,12 +14,8 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
 app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname, '../public', 'index.html'));
+    res.sendFile(path.join(__dirname, './public', 'index.html'));
   });
-
-app.get('/app', function(req, res, next) {
-    res.sendFile(path.join(__dirname, '../public', 'index.html'));
-   });
 
 app.get('/restaurants', (req,res)=>{
     Restaurant.find()
