@@ -10854,11 +10854,6 @@ var RestaurantList = /*#__PURE__*/function (_React$Component) {
   _createClass(RestaurantList, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.getData();
-    }
-  }, {
-    key: "getData",
-    value: function getData() {
       var _this2 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/restaurants').then(function (results) {
@@ -10899,11 +10894,11 @@ var RestaurantList = /*#__PURE__*/function (_React$Component) {
       var restaurantFound = this.state.restaurants.find(function (_ref) {
         var _id = _ref._id;
         return _id === restaurant;
-      }).name;
+      });
       var listElement = document.createElement('li');
-      listElement.setAttribute("key", restaurantFound);
-      listElement.setAttribute("value", restaurantFound);
-      listElement.innerHTML = restaurantFound;
+      listElement.setAttribute("key", restaurantFound.name);
+      listElement.setAttribute("value", restaurantFound.name);
+      listElement.innerHTML = restaurantFound.name;
       list.appendChild(listElement);
     }
   }, {
@@ -10914,7 +10909,7 @@ var RestaurantList = /*#__PURE__*/function (_React$Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "reslist-content",
         id: "reslist-content"
-      }, this.state.locations.map(function (location) {
+      }, this.state.restaurants.length > 0 && this.state.locations.map(function (location) {
         return _this4.renderLocation(location);
       })));
     }

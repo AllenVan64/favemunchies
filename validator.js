@@ -18,7 +18,7 @@ const checkRestaurant = restaurant => {
 
 const escapeLocation = location => {
     var name = location.toUpperCase();
-    return validator.escape(name);
+    return escape(name);
 }
 
 exports.restaurantValidators = [

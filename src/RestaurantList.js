@@ -13,10 +13,6 @@ class RestaurantList extends React.Component {
     }
 
     componentDidMount() {
-        this.getData();
-    }
-
-    getData() {
         axios.get('/restaurants')
         .then(results => {
             this.setState({restaurants: results.data});
@@ -43,18 +39,20 @@ class RestaurantList extends React.Component {
     }
 
     renderRestaurant(restaurant, list) {
-        let restaurantFound = this.state.restaurants.find( ({ _id }) => _id === restaurant ).name;
+        
+        let restaurantFound = this.state.restaurants.find( ({ _id }) => _id === restaurant );
         let listElement = document.createElement('li');
-        listElement.setAttribute("key", restaurantFound);
-        listElement.setAttribute("value", restaurantFound);
-        listElement.innerHTML = restaurantFound;
+        listElement.setAttribute("key", restaurantFound.name);
+        listElement.setAttribute("value", restaurantFound.name);
+        listElement.innerHTML = restaurantFound.name;
         list.appendChild(listElement);
     }
 
     render() {
         return <>
             <div className="reslist-content" id="reslist-content">
-                {this.state.locations.map(location=> this.renderLocation(location))}
+                {/* Render only after restaurants has been initialized*/}
+                {this.state.restaurants.length > 0 &&  this.state.locations.map(location=> this.renderLocation(location))}
             </div>
         </>
     }
