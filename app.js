@@ -13,9 +13,9 @@ app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
-app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname, './public', 'index.html'));
-  });
+// app.get('/', function(req, res) {
+//     res.sendFile(path.join(__dirname, './public', 'index.html'));
+//   });
 
 app.get('/restaurants', (req,res)=>{
     Restaurant.find()
@@ -50,22 +50,6 @@ app.post('/restaurants', restaurantValidators, (req,res)=>{
         .exec()
         .then(locationFound=>{
             const newRestaurant = new Restaurant(req.body);
-            // locationFound.restaurants.forEach(restaurant=> {
-            //     Restaurant.findOne({_id: restaurant._id})
-            //     .exec()
-            //     .then(result=> {
-            //         // Duplicate found in that location
-            //         console.log(result.name == newRestaurant.name)
-            //         if(result.name == newRestaurant.name) {
-            //             // Error if location already exists in database
-            //             return res.status(401).send("Restaurant already exists at that location");
-            //         }
-            //     })
-            //     .catch(error=> {
-            //         console.log(error);
-            //         return res.status(500).send("Internal server error"); // Error when finding
-            //     })
-            // });
             newRestaurant.save()
             .then(result=>{
                 locationFound.restaurants.push(newRestaurant);
@@ -90,7 +74,6 @@ app.post('/restaurants', restaurantValidators, (req,res)=>{
     }
 });
 
-
 app.post('/locations', locationValidators, (req,res, next)=>{
     const valErrors = validationResult(req).array();
     if(valErrors.length != 0) {
@@ -101,8 +84,6 @@ app.post('/locations', locationValidators, (req,res, next)=>{
         .exec()
         .then(locationFound=>{
             if(locationFound) {
-                let error = new Error();
-                //next(error);
                 // Error if location already exists in database
                 res.status(401).send("Location already exists");
             } else {
@@ -126,7 +107,7 @@ app.post('/locations', locationValidators, (req,res, next)=>{
 
 connection.once('open', ()=>{
     console.log('connected to db');
-        const server = app.listen(8080, ()=>{
-        console.log('listening on 8080');
+        const server = app.listen(process.env.PORT || 8080, ()=>{
+        console.log('listening for requests');
     });
 });
