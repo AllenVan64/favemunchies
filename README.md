@@ -1,4 +1,4 @@
-# Project Title
+# Fave Munchies
 
 Fave Munchies is a web app that helps you keep track of your favourite restaurants and where they are located.
 
