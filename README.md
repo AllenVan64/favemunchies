@@ -34,4 +34,4 @@ Restaurants also have a 1 to 30 characters cap and will be escaped, validated an
 
 ## Author
 
-* **Allen Vanegas** - [PurpleBooth] (https://github.com/AllenVan64)
+* **Allen Vanegas** - [AllenVan64] (https://github.com/AllenVan64)
