@@ -34,7 +34,7 @@ class AddRestaurant extends React.Component {
     handleRestaurantSubmit(event) {
         event.preventDefault();
         
-         // Status dummie toedit values
+         // Status dummie to edit values
          var status = {...this.state.status};
 
          axios.post('/restaurants', {name:this.state.restaurantName, location:this.state.location})
@@ -61,7 +61,6 @@ class AddRestaurant extends React.Component {
     }
 
     render() {
-        
         return <>
             <form className="form-container" onSubmit={event=>this.handleRestaurantSubmit(event)}>
                 <div className="form-group">

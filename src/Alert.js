@@ -1,10 +1,10 @@
 import React from 'react';
 
+/* Creates a little alert message when a submit has succeeded or there is a form error */
 class Alert extends React.Component {
     render() {
         var status;
         var message;
-        console.log(this.props.status.error);
         if(this.props.status.error) {
             status = "danger";
             message = "Error: \b";

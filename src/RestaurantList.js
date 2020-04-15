@@ -25,6 +25,7 @@ class RestaurantList extends React.Component {
         .catch(error => console.log(error));
     }
 
+    /* Manipulates the DOM to show the UL of locations */
     renderLocation(location) {
         let restaurantList = document.getElementById("reslist-content");
         let locationList = document.createElement('ul');
@@ -38,6 +39,7 @@ class RestaurantList extends React.Component {
         }
     }
 
+    /* Manipulates the DOM to show the LI inside the locations UL */
     renderRestaurant(restaurant, list) {
         
         let restaurantFound = this.state.restaurants.find( ({ _id }) => _id === restaurant );

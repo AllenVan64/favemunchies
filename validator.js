@@ -1,9 +1,9 @@
 const {check} = require('express-validator');
 const validator = require('validator');
 
-/* Validate that the location is not null or 'None' */
+/* Validate that the location is not null */
 const validLocation = location => {
-    return ((location != null) && (location != "None"))
+    return location != null;
 }
 
 /* Restaurant sanitization, including capitilazing and escaping */
@@ -16,9 +16,10 @@ const checkRestaurant = restaurant => {
     return restaurant;
 }
 
-const escapeLocation = location => {
+/* Puts location in all caps */
+const checkLocation = location => {
     var name = location.toUpperCase();
-    return escape(name);
+    return name;
 }
 
 exports.restaurantValidators = [
@@ -40,5 +41,5 @@ exports.locationValidators = [
         .escape()
         .isLength({min: 1,max: 30})
         .custom(validLocation)
-        .customSanitizer(escapeLocation)
+        .customSanitizer(checkLocation)
 ];
