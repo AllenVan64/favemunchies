@@ -2,6 +2,7 @@ import React from 'react';
 import Menu from './Menu.js';
 import Content from './Content.js';
 
+/* Main app component that handles page changes */
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -16,7 +17,7 @@ class App extends React.Component {
     button.classList.add("active");
   }
 
-  // Sets the actual page and sets button as active
+  // Sets the current page and sets button as active
   choosePage(event, page) {
     var buttons = document.getElementsByClassName("nav-btn");
     var buttons;
@@ -35,7 +36,6 @@ class App extends React.Component {
   }
   
   render() {
-    
     return <>
         <Menu choosePage = {this.choosePage} />
         <Content currPage = {this.state.currPage}/>

@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Alert from './Alert.js';
 
+/* AddLocation component/page of the web app */
 class AddLocation extends React.Component {
 
     constructor(props) {

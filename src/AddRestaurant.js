@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
+/* AddRestaurant component/page of the web app */
 class AddRestaurant extends React.Component {
 
     constructor(props) {

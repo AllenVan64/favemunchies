@@ -1,11 +1,8 @@
 import React from 'react';
 
-
+/* The side menu of the web app */
 class Menu extends React.Component {
-
-
     render() {
-    
         return <>
             <nav id="sidebar">
                 <div className="sidebar-header">
@@ -25,7 +22,7 @@ class Menu extends React.Component {
                 </ul>
                 <ul className="list-unstyled CTAs">
                     <li>
-                        <a href="http://s000.tinyupload.com/download.php?file_id=35847823384655688988&t=3584782338465568898817852" className="download">Download Readme</a>
+                        <a href="http://s000.tinyupload.com/download.php?file_id=95197881208836191904&t=9519788120883619190493819" className="download">Download Readme</a>
                     </li>
                 </ul>
             </nav>
